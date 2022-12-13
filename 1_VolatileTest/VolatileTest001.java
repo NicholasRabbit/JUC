@@ -22,6 +22,7 @@ public class VolatileTest001 {
 				System.out.println(Thread.currentThread().getName() + "==>execute!");
 				break;
 			}
+			System.out.println("while loop execute");
 		}
 	
 	}
@@ -30,8 +31,10 @@ public class VolatileTest001 {
 
 class MyRunnable01 implements Runnable {
 
+	//不适用volatile修饰
 	private boolean flag = false;
-	//
+	
+	//使用volatile修饰
 	//private volatile boolean flag = false;
 	
 	public void run(){
