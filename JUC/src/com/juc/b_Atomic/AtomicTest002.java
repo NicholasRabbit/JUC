@@ -2,8 +2,8 @@ package com.juc.b_Atomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/*ʹ��ԭ�ӱ������������߳�ʹ�ö��ڴ��еı���ʱ���������ظ�����
-  ������ʽ�ڵײ���õ���CAS(Compare And Swap)�㷨
+/*使用原子变量，避免多个线程使用堆内存中的变量时出现数据重复错误
+  这种形式在底层就用到了CAS(Compare And Swap)算法
 */
 public class AtomicTest002 {
 	
@@ -20,12 +20,12 @@ public class AtomicTest002 {
 
 class MyRunnable02 implements Runnable {
 	
-	private AtomicInteger serialNum = new AtomicInteger(0);  //��ʼ������Ϊ0
+	private AtomicInteger serialNum = new AtomicInteger(0);  //初始化变量为0
 	
 	public void run(){
 		
 		try{
-		    Thread.sleep(300);           //˯���߳�0.3�룬ʹ��i++����������ױ�¶
+		    Thread.sleep(300);           //睡眠线程0.3秒，使得i++的问题更容易暴露
 		}catch(InterruptedException e){
 		    e.printStackTrace();
 		}
@@ -34,6 +34,6 @@ class MyRunnable02 implements Runnable {
 	}
 
 	public int getSerialNum(){
-		return serialNum.getAndIncrement();  //getAndIncrement()�����൱��i++������ֵ��int����
+		return serialNum.getAndIncrement();  //getAndIncrement()方法相当于i++，返回值是int类型
 	}
 }
