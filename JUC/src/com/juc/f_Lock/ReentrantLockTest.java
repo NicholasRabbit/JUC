@@ -1,6 +1,7 @@
+package com.juc.f_Lock;
 
-import java.util.concurrent.locks.*;
-import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /*
 JUC中的线程锁的范例，即访问公共对象时，一个线程带一个锁访问这个对象，防止别的线程访问
 ReentrantLock.java中的lock()方法与synchronized作用相同，都是为了保证线程安全，但是这个lock()方法的功能更强大

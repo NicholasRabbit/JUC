@@ -1,3 +1,5 @@
+package com.juc.b_Atomic;
+
 import java.util.Random;
 
 /*模拟CAS算法
