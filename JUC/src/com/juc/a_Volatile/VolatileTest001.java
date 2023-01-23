@@ -37,10 +37,10 @@ public class VolatileTest001 {
 class MyRunnable01 implements Runnable {
 
 	//不使用volatile修饰，主线程会一直执行while循环，不执行其内的if语句break
-	private boolean flag = false;
+	//private boolean flag = false;
 	
 	//使用volatile修饰，主线程会看到flag变成true了，会更新自己工作缓存中的flag值
-	//private volatile boolean flag = false;
+	private volatile boolean flag = false;
 	
 	public void run(){
 		
