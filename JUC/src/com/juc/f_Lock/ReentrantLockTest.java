@@ -34,7 +34,7 @@ class TicketSeller implements Runnable {
 				
 				if(ticketNum > 0){
 					try{
-						Thread.sleep(100);  //每个线程睡0.3秒，看是否有别的线程操作共有对象ticketNum
+						Thread.sleep(100);  //每个线程睡0.1秒，看是否有别的线程操作共有对象ticketNum
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
