@@ -6,8 +6,10 @@ import java.util.concurrent.FutureTask;
 
 
 /*
-复习创建线程的第三种方式
-FutureTask可用于闭锁，因为它的方法get()不获取到返回值的话当前线程阻塞
+Reviewing the third approach to create a thread in Java.
+FutureTask could be used for deadlock since the thread will be held if there is not any
+returned value of the method 'get()';
+
 */
 
 public class CallableTest {
@@ -24,9 +26,14 @@ public class CallableTest {
 		try{
 			t.start();	
 			t2.start();
-			Integer count = ft.get();  
+
+			Integer count1 = ft.get();
+			System.out.println("count==>" + count1);
+
 			Integer count2 = ft2.get();  //调用get()方法造成当前线程阻塞，下面的sout等到这句执行完才会执行
-			Integer sum = count + count2;
+			System.out.println("count2==>" + count2);
+
+			Integer sum = count1 + count2;
 			System.out.println("sum ==>" + sum);
 			System.out.println("========================");   
 		}catch (IllegalThreadStateException e){
