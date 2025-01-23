@@ -37,3 +37,8 @@
 解决虚假唤醒，把if换成while ??
 
 ![image-20220126215319335](note_images/image-20220126215319335.png)
+
+### 5, Thread Pool
+
+[Official Tutorials Of Thread Pool in Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html)
+
